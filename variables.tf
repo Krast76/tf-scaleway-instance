@@ -37,7 +37,20 @@ variable "vm_pg" {
 }
 
 variable "vm_user_data" {
-  type = list
+  type = map
   description = "List of map for user_data"
-  default = []
+  default = {}
 }
+
+variable "vm_inbound_rule" {
+  type = list(map(string))
+  default  = [{
+    action = "accept"
+    port = 22
+    ip_range = "0.0.0.0/0"
+  }]
+}
+
+/*variable "vm_outbound_rule" {
+  type = list
+}*/

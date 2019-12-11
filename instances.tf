@@ -4,7 +4,7 @@ resource "scaleway_instance_server" "instance" {
   image              = "${var.vm_image}"
   name               = "${var.vm_name}-${count.index}"
   tags               = "${var.vm_tags}"
-  security_group_id  = "${var.vm_secgroup}"
+  security_group_id  = "${scaleway_instance_security_group.secgroup.id}"
   placement_group_id = "${var.vm_pg}"
   zone               = "${var.vm_zone}"
 
