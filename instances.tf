@@ -7,7 +7,6 @@ resource "scaleway_instance_server" "instance" {
   tags               = "${var.vm_tags}"
   security_group_id  = "${scaleway_instance_security_group.secgroup.id}"
   placement_group_id = "${var.vm_pg}"
-  zone               = "${var.vm_zone}"
   disable_dynamic_ip = "${var.vm_disable_dynamic_ip}"
   ip_id              = "${var.vm_public_ip}"
 

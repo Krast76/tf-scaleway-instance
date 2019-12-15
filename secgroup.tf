@@ -1,6 +1,5 @@
 resource "scaleway_instance_security_group" "secgroup" {
   name = "${var.vm_name}-secgroup"
-  zone = "${var.vm_zone}"
 
   inbound_default_policy  = "drop"
   outbound_default_policy = "drop"
