@@ -44,13 +44,25 @@ variable "vm_user_data" {
 
 variable "vm_inbound_rule" {
   type = list(map(string))
-  default  = [{
-    action = "accept"
-    port = 22
+  default = [{
+    action   = "accept"
+    port     = 22
     ip_range = "0.0.0.0/0"
   }]
 }
 
-/*variable "vm_outbound_rule" {
-  type = list
-}*/
+variable "vm_outbound_rule" {
+  type = list(map(string))
+  default = [{
+    action   = "accept"
+    protocol = "ICMP"
+    },
+    {
+      action   = "accept"
+      protocol = "UDP"
+    },
+    {
+      action = "accept"
+    }
+  ]
+}
