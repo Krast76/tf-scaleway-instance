@@ -16,6 +16,16 @@ variable "vm_number" {
   default = 1
 }
 
+variable "vm_disable_dynamic_ip" {
+  type    = bool
+  default = false
+}
+
+variable "vm_public_ip" {
+  type    = string
+  default = null
+}
+
 variable "vm_zone" {
   type    = string
   default = "fr-par-1"
@@ -37,9 +47,9 @@ variable "vm_pg" {
 }
 
 variable "vm_user_data" {
-  type = map
+  type        = map
   description = "List of map for user_data"
-  default = {}
+  default     = {}
 }
 
 variable "vm_inbound_rule" {
