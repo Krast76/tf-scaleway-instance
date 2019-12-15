@@ -18,7 +18,7 @@ variable "vm_number" {
 
 variable "vm_disable_dynamic_ip" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "vm_public_ip" {
