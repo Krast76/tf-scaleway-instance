@@ -43,7 +43,7 @@ variable "vm_secgroup" {
 variable "vm_pg" {
   type        = string
   description = "Placement Group of the VM"
-  default     = ""
+  default     = null
 }
 
 variable "vm_user_data" {
