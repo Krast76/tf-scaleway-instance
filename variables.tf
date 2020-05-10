@@ -76,3 +76,8 @@ variable "vm_outbound_rule" {
     }
   ]
 }
+
+variable "additional_volumes" {
+  default = []
+}
+

@@ -1,3 +1,10 @@
+locals {
+  volumes = {
+    for v in var.additional_volumes:
+    v.name => v
+  }
+}
+
 resource "scaleway_instance_server" "instance" {
   count = var.vm_number
 
@@ -18,4 +25,15 @@ resource "scaleway_instance_server" "instance" {
       value = data.value
     }
   }
+
+  additional_volume_ids = [for v in scaleway_instance_volume.server_volume: v.id]
+}
+
+resource "scaleway_instance_volume" "server_volume" {
+  count = var.vm_number
+  for_each = local.volumes 
+
+  name = each.value.name 
+  type = lookup(each.value, "type", "b_ssd") 
+  size_in_gb = lookup(each.value, "size", 1)
 }
