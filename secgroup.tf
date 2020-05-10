@@ -4,6 +4,10 @@ resource "scaleway_instance_security_group" "secgroup" {
   inbound_default_policy  = "drop"
   outbound_default_policy = "drop"
 
+}
+
+resource "scaleway_instance_security_group_rules" "secgroup_rule" {
+  security_group_id = scaleway_instance_security_group.secgroup.id
   dynamic "inbound_rule" {
     iterator = rule
     for_each = [for rule in var.vm_inbound_rule : merge({
@@ -42,4 +46,5 @@ resource "scaleway_instance_security_group" "secgroup" {
     }
 
   }
+
 }
