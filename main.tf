@@ -1,4 +1,3 @@
 provider "scaleway" {
-  version = "~> 1.13.0"
-  zone    = var.vm_zone
+  version = "~> 1.15.0"
 }
